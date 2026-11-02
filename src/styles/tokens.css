@@ -1,0 +1,37 @@
+/* ── Uzuri V4 design tokens — oxidized bronze ─────────────── */
+:root {
+  /* palette */
+  --ink: #04060f;
+  --ink-2: #0a0d1c;
+  --ink-3: #131834;
+  --bone: #e9edfb;
+  --bone-dim: #9aa4cc;
+  --bone-faint: #5d6588;
+  --copper: #57d4ff;
+  --copper-hot: #a06bff;
+  --verdigris: #62f5c2;
+  --line: rgba(233, 237, 251, 0.09);
+  --line-strong: rgba(233, 237, 251, 0.18);
+
+  /* type */
+  --font-serif: 'Times New Roman', Times, Georgia, serif;
+  --font-sans: 'Times New Roman', Times, Georgia, serif;
+  --font-brand: 'Satoshi', -apple-system, 'Helvetica Neue', sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', monospace;
+
+  --text-hero: clamp(2.6rem, 0.9rem + 6.4vw, 7.2rem);
+  --text-display: clamp(2.6rem, 1.2rem + 5.4vw, 6.5rem);
+  --text-title: clamp(1.4rem, 1rem + 1.4vw, 2.1rem);
+  --text-body: clamp(1rem, 0.94rem + 0.3vw, 1.15rem);
+  --text-mono: clamp(0.6rem, 0.58rem + 0.15vw, 0.72rem);
+
+  /* rhythm */
+  --space-section: clamp(5.5rem, 3.5rem + 8vw, 11rem);
+  --gutter: clamp(1.25rem, 0.5rem + 4vw, 5rem);
+
+  /* motion */
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 250ms;
+  --dur-slow: 700ms;
+}

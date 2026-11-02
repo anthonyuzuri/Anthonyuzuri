@@ -1,0 +1,19 @@
+{
+  "name": "uzuri-systems-v4",
+  "private": true,
+  "version": "4.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "gsap": "^3.14.2",
+    "lenis": "^1.3.4",
+    "three": "^0.182.0"
+  },
+  "devDependencies": {
+    "vite": "^5.4.21"
+  }
+}

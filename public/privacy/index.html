@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Privacy Policy · Uzuri Systems</title>
+<meta name="description" content="How UzuriSystems collects, uses, and shares information, including our SMS messaging program." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<style>
+  :root{
+    --ink:#04060f; --ink-2:#0a0d1c; --ink-3:#131834;
+    --bone:#e9edfb; --bone-dim:#9aa4cc; --bone-faint:#5d6588;
+    --cyan:#57d4ff; --violet:#a06bff;
+    --line:rgba(233,237,251,.09); --line-strong:rgba(233,237,251,.18);
+    --serif:'Times New Roman',Times,Georgia,serif;
+    --mono:'JetBrains Mono','SF Mono',ui-monospace,Menlo,monospace;
+  }
+  @font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-500.woff2') format('woff2');font-weight:500;font-display:swap}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--bone);font-family:var(--serif);
+       font-size:1.05rem;line-height:1.75;-webkit-font-smoothing:antialiased}
+  a{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(87,212,255,.35)}
+  a:hover{border-bottom-color:var(--cyan)}
+  ::selection{background:var(--cyan);color:var(--ink)}
+  .wrap{max-width:52rem;margin-inline:auto;padding:clamp(1.25rem,4vw,3rem)}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+          padding-bottom:1.75rem;border-bottom:1px solid var(--line);margin-bottom:clamp(2.5rem,5vw,4rem)}
+  .brand{display:flex;align-items:baseline;gap:.5rem;font-family:var(--mono);
+         font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bone);border:0}
+  .brand b{font-weight:500}
+  .brand i{font-style:normal;color:var(--bone-faint)}
+  .back{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+        text-transform:uppercase;color:var(--bone-dim);border:0}
+  .back:hover{color:var(--cyan)}
+
+  .kicker{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;
+          text-transform:uppercase;color:var(--cyan);margin-bottom:1.1rem}
+  h1{font-family:var(--serif);font-weight:400;line-height:1.02;
+     font-size:clamp(2.4rem,1.4rem+3.4vw,4rem);margin-bottom:.9rem}
+  h1 em{font-style:italic;background:linear-gradient(100deg,var(--cyan),var(--violet));
+        -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .updated{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;
+           text-transform:uppercase;color:var(--bone-faint);margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.35rem,1.1rem+.7vw,1.75rem);
+     margin:clamp(2.4rem,4vw,3.2rem) 0 .85rem;padding-top:1.6rem;border-top:1px solid var(--line);
+     display:flex;gap:.9rem;align-items:baseline}
+  h2 .n{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--cyan);
+        flex:0 0 auto;transform:translateY(-.15em)}
+  h3{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+     color:var(--bone-dim);margin:1.6rem 0 .55rem}
+  p{color:var(--bone-dim);margin-bottom:1rem}
+  p.lead{color:var(--bone)}
+  ul{list-style:none;margin:0 0 1.1rem}
+  li{color:var(--bone-dim);padding-left:1.4rem;position:relative;margin-bottom:.55rem}
+  li::before{content:'';position:absolute;left:.25rem;top:.72em;width:5px;height:1px;background:var(--cyan)}
+  strong{color:var(--bone);font-weight:400}
+  dfn{font-style:normal;color:var(--bone)}
+
+  .callout{border:1px solid var(--line-strong);border-radius:14px;
+           background:linear-gradient(180deg,rgba(19,24,52,.55),rgba(10,13,28,.8));
+           padding:clamp(1.2rem,3vw,1.75rem);margin:1.4rem 0}
+  .callout p:last-child{margin-bottom:0}
+  .callout .h{font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;
+              text-transform:uppercase;color:var(--cyan);margin-bottom:.7rem}
+
+  .contact-block{margin-top:.6rem}
+  .contact-block div{display:flex;flex-wrap:wrap;gap:.35rem 1.2rem;padding:.55rem 0;border-bottom:1px solid var(--line)}
+  .contact-block dt{flex:0 0 8rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+                    text-transform:uppercase;color:var(--bone-faint)}
+  .contact-block dd{color:var(--bone)}
+
+  footer.pagefoot{margin-top:clamp(3rem,6vw,5rem);padding-top:1.6rem;border-top:1px solid var(--line);
+                  display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between;
+                  font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;
+                  text-transform:uppercase;color:var(--bone-faint)}
+  footer.pagefoot a{color:var(--bone-dim);border:0}
+  footer.pagefoot a:hover{color:var(--cyan)}
+  @media (max-width:600px){.contact-block dt{flex-basis:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="/"><b>UZURI</b><i>SYSTEMS</i></a>
+    <a class="back" href="/">&larr; Back to site</a>
+  </div>
+
+  <p class="kicker">Legal</p>
+  <h1>Privacy <em>Policy.</em></h1>
+  <p class="updated">Last updated: August 2026</p>
+
+  <p class="lead">UzuriSystems (&ldquo;UzuriSystems,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) respects your
+  privacy. This Privacy Policy explains how we collect, use, and share information when
+  you visit uzurisystems.com (the &ldquo;Site&rdquo;) or communicate with us, including by phone,
+  text message (SMS), or email.</p>
+
+  <h2><span class="n">01</span>Overview</h2>
+  <p>UzuriSystems is operated by Body Transformation Blueprint LLC, a Wyoming limited
+  liability company.</p>
+  <p>By using the Site or providing your contact information to us, you agree to this
+  Privacy Policy. If you do not agree, please do not use the Site or provide your
+  information to us.</p>
+
+  <h2><span class="n">02</span>Information we collect</h2>
+  <ul>
+    <li>Contact information you provide directly, such as your name, business name, email
+    address, and phone number &mdash; for example, when you fill out a contact form,
+    request a quote, or opt in to receive text messages from us.</li>
+    <li>Communications you send us, including messages, replies, and call or text
+    history.</li>
+    <li>Basic technical information collected automatically when you visit the Site (such
+    as browser type, pages visited, and general location), used only to understand Site
+    usage and improve it.</li>
+  </ul>
+
+  <h2><span class="n">03</span>How we use your information</h2>
+  <ul>
+    <li>Respond to your inquiries and provide the services you request.</li>
+    <li>Send you requested updates, appointment confirmations, or account-related
+    messages.</li>
+    <li>Send marketing or promotional messages, but only if you have opted in to receive
+    them.</li>
+    <li>Improve our website and services.</li>
+    <li>Comply with legal obligations.</li>
+  </ul>
+
+  <h2><span class="n">04</span>SMS / text messaging program</h2>
+  <p>If you provide your mobile number and opt in to receive text messages from
+  UzuriSystems, the following terms apply.</p>
+  <h3>Program description</h3>
+  <p>UzuriSystems sends account, appointment, and service-related text messages, and
+  &mdash; where you have separately opted in &mdash; occasional promotional messages about
+  our services.</p>
+
+  <h3>How you opt in</h3>
+  <p>There are four ways you may opt in:</p>
+  <ul>
+    <li><strong>The chat widget on this Site.</strong> It presents two separate, unchecked
+    consent boxes &mdash; one authorizing informational and transactional messages, and a
+    separate one authorizing promotional messages &mdash; so you may consent to one without
+    the other, or to neither.</li>
+    <li><strong>The contact form on this Site.</strong> It carries a single unchecked,
+    optional consent checkbox covering messages about your inquiry. You can submit the form
+    without ticking it.</li>
+    <li><strong>Texting us first</strong> at a number we publish.</li>
+    <li><strong>Telling a representative verbally</strong> that we may text you.</li>
+  </ul>
+  <p><strong>Consent to receive text messages is never a condition of purchase</strong>, no
+  consent box is ever pre-selected, and no consent box is required in order to contact us
+  or to use this Site.</p>
+
+  <h3>Message frequency</h3>
+  <p>Message frequency varies depending on your interactions with us.</p>
+
+  <h3>Message and data rates</h3>
+  <p>Message and data rates may apply, depending on your mobile carrier plan.</p>
+
+  <h3>Opting out &mdash; reply STOP</h3>
+  <p>You can opt out at any time by replying <strong>STOP</strong> to any message. You
+  will receive one final confirmation message that you have been unsubscribed, and no
+  further messages will be sent unless you opt in again.</p>
+
+  <h3>Help &mdash; reply HELP</h3>
+  <p>Reply <strong>HELP</strong> to any message for assistance, or contact us at
+  <a href="mailto:anthony@uzurisystems.com">anthony@uzurisystems.com</a>.</p>
+
+  <h3>Carrier liability</h3>
+  <p>Carriers are not liable for delayed or undelivered messages.</p>
+
+  <div class="callout">
+    <p class="h">Mobile information &mdash; no third-party sharing</p>
+    <p><strong>No mobile information will be shared with third parties or affiliates for
+    marketing or promotional purposes.</strong> Information sharing to subcontractors in
+    support services, such as customer service, is permitted. All other use case
+    categories exclude text messaging originator opt-in data and consent; this
+    information will not be shared with any third parties.</p>
+  </div>
+
+  <h2><span class="n">05</span>How we share information</h2>
+  <p><strong>We do not sell your personal information.</strong> We may share information
+  with:</p>
+  <ul>
+    <li>Service providers who help us operate our business (for example, our CRM or
+    communications platform), solely to help us provide our services to you.</li>
+    <li>Legal authorities, if required to comply with a subpoena, court order, or
+    applicable law.</li>
+    <li>A successor entity, if UzuriSystems is involved in a merger, acquisition, or sale
+    of business assets.</li>
+  </ul>
+  <p>The sharing described above never includes mobile opt-in data or SMS consent, which
+  is excluded from all sharing as stated in Section 04.</p>
+
+  <h2><span class="n">06</span>Data retention</h2>
+  <p>We retain your information only as long as reasonably necessary to provide our
+  services, respond to your inquiries, and comply with legal obligations.</p>
+
+  <h2><span class="n">07</span>Your rights</h2>
+  <p>You may request access to, correction of, or deletion of your personal information at
+  any time by contacting us at
+  <a href="mailto:anthony@uzurisystems.com">anthony@uzurisystems.com</a>.</p>
+
+  <h2><span class="n">08</span>Changes to this policy</h2>
+  <p>We may update this Privacy Policy from time to time. Changes will be posted on this
+  page with an updated &ldquo;Last updated&rdquo; date.</p>
+
+  <h2><span class="n">09</span>Contact us</h2>
+  <p>Questions about this Privacy Policy or your data can be sent to:</p>
+  <dl class="contact-block">
+    <div><dt>Email</dt><dd><a href="mailto:anthony@uzurisystems.com">anthony@uzurisystems.com</a></dd></div>
+    <div><dt>Business</dt><dd>Body Transformation Blueprint LLC (Wyoming)</dd></div>
+    <div><dt>Terms</dt><dd><a href="/terms/">Terms of Service</a></dd></div>
+  </dl>
+
+
+  <footer class="pagefoot">
+    <span>&copy; Uzuri Systems 2026</span>
+    <span><a href="/terms/">Terms of Service</a> &nbsp;·&nbsp; <a href="/">Home</a></span>
+  </footer>
+</div>
+</body>
+</html>

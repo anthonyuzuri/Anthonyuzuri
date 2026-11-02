@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Terms of Service · Uzuri Systems</title>
+<meta name="description" content="The terms governing use of uzurisystems.com and UzuriSystems services." />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<style>
+  :root{
+    --ink:#04060f; --ink-2:#0a0d1c; --ink-3:#131834;
+    --bone:#e9edfb; --bone-dim:#9aa4cc; --bone-faint:#5d6588;
+    --cyan:#57d4ff; --violet:#a06bff;
+    --line:rgba(233,237,251,.09); --line-strong:rgba(233,237,251,.18);
+    --serif:'Times New Roman',Times,Georgia,serif;
+    --mono:'JetBrains Mono','SF Mono',ui-monospace,Menlo,monospace;
+  }
+  @font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-400.woff2') format('woff2');font-weight:400;font-display:swap}
+  @font-face{font-family:'JetBrains Mono';src:url('/fonts/jetbrains-mono-500.woff2') format('woff2');font-weight:500;font-display:swap}
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--ink);color:var(--bone);font-family:var(--serif);
+       font-size:1.05rem;line-height:1.75;-webkit-font-smoothing:antialiased}
+  a{color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(87,212,255,.35)}
+  a:hover{border-bottom-color:var(--cyan)}
+  ::selection{background:var(--cyan);color:var(--ink)}
+  .wrap{max-width:52rem;margin-inline:auto;padding:clamp(1.25rem,4vw,3rem)}
+
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+          padding-bottom:1.75rem;border-bottom:1px solid var(--line);margin-bottom:clamp(2.5rem,5vw,4rem)}
+  .brand{display:flex;align-items:baseline;gap:.5rem;font-family:var(--mono);
+         font-size:.68rem;letter-spacing:.22em;text-transform:uppercase;color:var(--bone);border:0}
+  .brand b{font-weight:500}
+  .brand i{font-style:normal;color:var(--bone-faint)}
+  .back{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+        text-transform:uppercase;color:var(--bone-dim);border:0}
+  .back:hover{color:var(--cyan)}
+
+  .kicker{font-family:var(--mono);font-size:.66rem;letter-spacing:.24em;
+          text-transform:uppercase;color:var(--cyan);margin-bottom:1.1rem}
+  h1{font-family:var(--serif);font-weight:400;line-height:1.02;
+     font-size:clamp(2.4rem,1.4rem+3.4vw,4rem);margin-bottom:.9rem}
+  h1 em{font-style:italic;background:linear-gradient(100deg,var(--cyan),var(--violet));
+        -webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .updated{font-family:var(--mono);font-size:.64rem;letter-spacing:.16em;
+           text-transform:uppercase;color:var(--bone-faint);margin-bottom:clamp(2.5rem,5vw,3.5rem)}
+
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.35rem,1.1rem+.7vw,1.75rem);
+     margin:clamp(2.4rem,4vw,3.2rem) 0 .85rem;padding-top:1.6rem;border-top:1px solid var(--line);
+     display:flex;gap:.9rem;align-items:baseline}
+  h2 .n{font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;color:var(--cyan);
+        flex:0 0 auto;transform:translateY(-.15em)}
+  h3{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;
+     color:var(--bone-dim);margin:1.6rem 0 .55rem}
+  p{color:var(--bone-dim);margin-bottom:1rem}
+  p.lead{color:var(--bone)}
+  ul{list-style:none;margin:0 0 1.1rem}
+  li{color:var(--bone-dim);padding-left:1.4rem;position:relative;margin-bottom:.55rem}
+  li::before{content:'';position:absolute;left:.25rem;top:.72em;width:5px;height:1px;background:var(--cyan)}
+  strong{color:var(--bone);font-weight:400}
+  dfn{font-style:normal;color:var(--bone)}
+
+  .callout{border:1px solid var(--line-strong);border-radius:14px;
+           background:linear-gradient(180deg,rgba(19,24,52,.55),rgba(10,13,28,.8));
+           padding:clamp(1.2rem,3vw,1.75rem);margin:1.4rem 0}
+  .callout p:last-child{margin-bottom:0}
+  .callout .h{font-family:var(--mono);font-size:.62rem;letter-spacing:.22em;
+              text-transform:uppercase;color:var(--cyan);margin-bottom:.7rem}
+
+  .contact-block{margin-top:.6rem}
+  .contact-block div{display:flex;flex-wrap:wrap;gap:.35rem 1.2rem;padding:.55rem 0;border-bottom:1px solid var(--line)}
+  .contact-block dt{flex:0 0 8rem;font-family:var(--mono);font-size:.62rem;letter-spacing:.2em;
+                    text-transform:uppercase;color:var(--bone-faint)}
+  .contact-block dd{color:var(--bone)}
+
+  footer.pagefoot{margin-top:clamp(3rem,6vw,5rem);padding-top:1.6rem;border-top:1px solid var(--line);
+                  display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between;
+                  font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;
+                  text-transform:uppercase;color:var(--bone-faint)}
+  footer.pagefoot a{color:var(--bone-dim);border:0}
+  footer.pagefoot a:hover{color:var(--cyan)}
+  @media (max-width:600px){.contact-block dt{flex-basis:100%}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="topbar">
+    <a class="brand" href="/"><b>UZURI</b><i>SYSTEMS</i></a>
+    <a class="back" href="/">&larr; Back to site</a>
+  </div>
+
+  <p class="kicker">Legal</p>
+  <h1>Terms of <em>Service.</em></h1>
+  <p class="updated">Last updated: August 2026</p>
+
+  <p class="lead">These Terms of Service (&ldquo;Terms&rdquo;) govern your access to and use of
+  uzurisystems.com (the &ldquo;Site&rdquo;) and any services offered by UzuriSystems, operated by
+  Body Transformation Blueprint LLC, a Wyoming limited liability company.</p>
+
+  <h2><span class="n">01</span>Acceptance of terms</h2>
+  <p>By using the Site or engaging our services, you agree to these Terms and to our
+  <a href="/privacy/">Privacy Policy</a>.</p>
+
+  <h2><span class="n">02</span>Our services</h2>
+  <p>UzuriSystems provides website design and development, automation, and related digital
+  marketing services to local businesses. Specific scope, pricing, and deliverables for any
+  engagement will be outlined separately in a proposal or agreement between UzuriSystems
+  and the client.</p>
+
+  <h2><span class="n">03</span>Eligibility</h2>
+  <p>You must be at least 18 years old to use this Site or engage our services on behalf of
+  a business you are authorized to represent.</p>
+
+  <h2><span class="n">04</span>Communications &amp; SMS consent</h2>
+  <p>By submitting your contact information through this Site or otherwise providing your
+  phone number to us, you may receive calls, text messages, or emails from UzuriSystems
+  related to your inquiry or our services. Text messaging is subject to the SMS program
+  terms below and in our <a href="/privacy/">Privacy Policy</a>, including your right to opt
+  out at any time by replying STOP.</p>
+  <h3>Program description</h3>
+  <p>UzuriSystems sends account, appointment, and service-related text messages, and
+  &mdash; where you have separately opted in &mdash; occasional promotional messages about
+  our services.</p>
+
+  <h3>How you opt in</h3>
+  <p>There are four ways you may opt in:</p>
+  <ul>
+    <li><strong>The chat widget on this Site.</strong> It presents two separate, unchecked
+    consent boxes &mdash; one authorizing informational and transactional messages, and a
+    separate one authorizing promotional messages &mdash; so you may consent to one without
+    the other, or to neither.</li>
+    <li><strong>The contact form on this Site.</strong> It carries a single unchecked,
+    optional consent checkbox covering messages about your inquiry. You can submit the form
+    without ticking it.</li>
+    <li><strong>Texting us first</strong> at a number we publish.</li>
+    <li><strong>Telling a representative verbally</strong> that we may text you.</li>
+  </ul>
+  <p><strong>Consent to receive text messages is never a condition of purchase</strong>, no
+  consent box is ever pre-selected, and no consent box is required in order to contact us
+  or to use this Site.</p>
+
+  <h3>Message frequency</h3>
+  <p>Message frequency varies depending on your interactions with us.</p>
+
+  <h3>Message and data rates</h3>
+  <p>Message and data rates may apply, depending on your mobile carrier plan.</p>
+
+  <h3>Opting out &mdash; reply STOP</h3>
+  <p>You can opt out at any time by replying <strong>STOP</strong> to any message. You
+  will receive one final confirmation message that you have been unsubscribed, and no
+  further messages will be sent unless you opt in again.</p>
+
+  <h3>Help &mdash; reply HELP</h3>
+  <p>Reply <strong>HELP</strong> to any message for assistance, or contact us at
+  <a href="mailto:anthony@uzurisystems.com">anthony@uzurisystems.com</a>.</p>
+
+  <h3>Carrier liability</h3>
+  <p>Carriers are not liable for delayed or undelivered messages.</p>
+
+  <div class="callout">
+    <p class="h">Mobile information &mdash; no third-party sharing</p>
+    <p><strong>No mobile information will be shared with third parties or affiliates for
+    marketing or promotional purposes.</strong> Information sharing to subcontractors in
+    support services, such as customer service, is permitted. All other use case
+    categories exclude text messaging originator opt-in data and consent; this
+    information will not be shared with any third parties.</p>
+  </div>
+
+  <h2><span class="n">05</span>Client responsibilities</h2>
+  <p>If you engage UzuriSystems for services, you agree to provide accurate information,
+  timely feedback, and any content, access, or approvals reasonably required for us to
+  complete the agreed-upon work.</p>
+
+  <h2><span class="n">06</span>Payment terms</h2>
+  <p>Payment terms (including setup fees, monthly fees, and billing cadence) will be
+  specified in the individual proposal or invoice provided to you at the time of
+  engagement. Recurring monthly fees, if applicable, continue until the service is
+  cancelled by either party as outlined in your specific agreement.</p>
+
+  <h2><span class="n">07</span>Intellectual property</h2>
+  <p>Upon full payment, ownership of custom deliverables built specifically for a client
+  (such as a website) transfers to that client, as outlined in the applicable proposal.
+  UzuriSystems retains the right to showcase completed work in its own portfolio and
+  marketing materials unless otherwise agreed in writing.</p>
+
+  <h2><span class="n">08</span>Disclaimers</h2>
+  <p>Our services and this Site are provided &ldquo;as is&rdquo; without warranties of any kind,
+  express or implied. We do not guarantee specific business outcomes (such as lead volume
+  or revenue) except where explicitly stated in a separate written agreement.</p>
+
+  <h2><span class="n">09</span>Limitation of liability</h2>
+  <p>To the fullest extent permitted by law, UzuriSystems&rsquo; total liability for any claim
+  arising from these Terms or our services is limited to the amount you paid to
+  UzuriSystems for the services giving rise to the claim.</p>
+
+  <h2><span class="n">10</span>Governing law</h2>
+  <p>These Terms are governed by the laws of the State of Wyoming, without regard to
+  conflict of law principles.</p>
+
+  <h2><span class="n">11</span>Changes to these terms</h2>
+  <p>We may update these Terms from time to time. Continued use of the Site or our services
+  after changes are posted constitutes acceptance of the updated Terms.</p>
+
+  <h2><span class="n">12</span>Contact us</h2>
+  <p>Questions about these Terms can be sent to:</p>
+  <dl class="contact-block">
+    <div><dt>Email</dt><dd><a href="mailto:anthony@uzurisystems.com">anthony@uzurisystems.com</a></dd></div>
+    <div><dt>Business</dt><dd>Body Transformation Blueprint LLC (Wyoming)</dd></div>
+    <div><dt>Privacy</dt><dd><a href="/privacy/">Privacy Policy</a></dd></div>
+  </dl>
+
+
+  <footer class="pagefoot">
+    <span>&copy; Uzuri Systems 2026</span>
+    <span><a href="/privacy/">Privacy Policy</a> &nbsp;·&nbsp; <a href="/">Home</a></span>
+  </footer>
+</div>
+</body>
+</html>
