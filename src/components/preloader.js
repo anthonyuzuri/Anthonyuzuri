@@ -1,6 +1,6 @@
 import { gsap } from 'gsap';
 
-const WORDS = ['NOISE', 'SIGNAL', 'PATTERN', 'SYSTEM', 'INTELLIGENCE', 'UZURI'];
+const WORDS = ['NOISE', 'POSTINGS', 'SIGNAL', 'OWNERS', 'INTROS', 'UZURI'];
 const DURATION = 2.1;
 
 /**

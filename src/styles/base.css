@@ -56,7 +56,7 @@ button { font: inherit; background: none; border: none; cursor: pointer; color: 
 
 em { font-style: italic; }
 
-.reveal-line { display: block; overflow: hidden; }
+.reveal-line { display: block; overflow: hidden; padding-bottom: 0.32em; margin-bottom: -0.32em; }
 .reveal-line > .reveal-inner { display: block; will-change: transform; }
 
 /* ── buttons ───────────────────────────────────────────────── */

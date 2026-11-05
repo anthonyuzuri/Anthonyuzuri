@@ -4,16 +4,16 @@
  */
 
 const PIPE_ROWS = [
-  { name: 'Acme Industrial · $42,000', platform: 'HubSpot' },
-  { name: 'Nordic Freight Co · $18,500', platform: 'Zoho' },
-  { name: 'Beacon Legal · $61,200', platform: 'Salesforce' },
-  { name: 'Harbor Dental · $9,800', platform: 'GHL' },
-  { name: 'Atlas Roofing · $27,400', platform: 'HubSpot' },
+  { name: 'Controls Engineer · Houston' },
+  { name: 'Process Engineer · Dallas' },
+  { name: 'Electrical Engineer · Austin' },
+  { name: 'Project Engineer · Phoenix' },
+  { name: 'Mechanical Engineer · Charlotte' },
 ];
 const PIPE_STATES = [
-  { cls: 's-queued', label: 'NEW LEAD' },
-  { cls: 's-moving', label: 'SCORING…' },
-  { cls: 's-synced', label: '● ROUTED' },
+  { cls: 's-queued', label: 'NEW ROLE' },
+  { cls: 's-moving', label: 'CHECKING…' },
+  { cls: 's-synced', label: '● IN YOUR BOX' },
 ];
 
 export function initPipelineDemo() {
@@ -22,7 +22,7 @@ export function initPipelineDemo() {
   host.innerHTML = PIPE_ROWS.map((r, i) => `
     <div class="demo-row" data-i="${i}">
       <span class="demo-name">${r.name}</span>
-      <span class="demo-status s-queued">QUEUED</span>
+      <span class="demo-status s-queued">NEW ROLE</span>
     </div>`).join('');
   const rows = [...host.querySelectorAll('.demo-status')];
   const state = rows.map(() => 0);
@@ -37,50 +37,37 @@ export function initPipelineDemo() {
   }, 700);
 }
 
-const PROPOSAL_LINES = [
-  ['> deal.read', ' · Beacon Legal · $61,200'],
-  ['> price.from_crm', ' · 3 line items resolved'],
-  ['> assemble.proposal', ' ██████████ 100%'],
-  ['> deliver', ' <b>ready in 1m 34s</b> <span class="ok">✓ sent</span>'],
-];
+const CONTACT_CHECKS = ['Owns the hire', 'Email verified', '3 roles open on his team'];
 
 export function initTypewriterDemo() {
   const host = document.getElementById('demo-typewriter');
   if (!host) return;
-  host.innerHTML = PROPOSAL_LINES.map(() => '<div class="demo-line"></div>').join('');
-  const lines = [...host.querySelectorAll('.demo-line')];
-
-  function typeLine(i) {
-    if (i >= PROPOSAL_LINES.length) {
-      setTimeout(() => {
-        lines.forEach((l) => { l.innerHTML = ''; });
-        typeLine(0);
-      }, 3200);
-      return;
+  host.classList.add('demo-contact');
+  host.innerHTML = `
+    <div class="contact-card-head">
+      <span class="contact-avatar">MR</span>
+      <span class="contact-who"><b>Mark R.</b><span>Engineering Manager</span><span>Gulf Coast Fabrication</span></span>
+    </div>
+    ${CONTACT_CHECKS.map((s) => `<div class="demo-check"><i>✓</i><span>${s}</span></div>`).join('')}`;
+  const checks = [...host.querySelectorAll('.demo-check')];
+  let i = 0;
+  setInterval(() => {
+    if (!demosLive) return;
+    if (i < checks.length) {
+      checks[i].classList.add('is-done');
+      i += 1;
+    } else {
+      setTimeout(() => checks.forEach((c) => c.classList.remove('is-done')), 400);
+      i = 0;
     }
-    const [prefix, rest] = PROPOSAL_LINES[i];
-    let n = 0;
-    lines[i].innerHTML = `<span class="demo-caret"></span>`;
-    const t = setInterval(() => {
-      n += 1;
-      const shown = prefix.slice(0, n);
-      if (n <= prefix.length) {
-        lines[i].innerHTML = `${shown}<span class="demo-caret"></span>`;
-      } else {
-        clearInterval(t);
-        lines[i].innerHTML = prefix + rest;
-        setTimeout(() => typeLine(i + 1), 340);
-      }
-    }, 34);
-  }
-  typeLine(0);
+  }, 900);
 }
 
 const LEDGER = [
-  { name: 'INV-2201 · Atlas Roofing', amount: 12400 },
-  { name: 'INV-2202 · Harbor Dental', amount: 4200 },
-  { name: 'INV-2203 · Nordic Freight', amount: 8750 },
-  { name: 'INV-2204 · Beacon Legal', amount: 15300 },
+  { name: 'Controls Engineer · Houston', step: 'STEP 2' },
+  { name: 'Process Engineer · Dallas', step: 'STEP 1' },
+  { name: 'Field Engineer · Midland', step: 'STEP 3' },
+  { name: 'Quality Engineer · Austin', step: 'STEP 2' },
 ];
 
 export function initLedgerDemo() {
@@ -89,7 +76,7 @@ export function initLedgerDemo() {
   host.innerHTML = LEDGER.map((r) => `
     <div class="demo-row">
       <span class="demo-name">${r.name}</span>
-      <span class="demo-status demo-amount demo-due">$${r.amount.toLocaleString()} · FOLLOW-UP</span>
+      <span class="demo-status demo-amount demo-due">${r.step} · FOLLOW UP</span>
     </div>`).join('');
   const cells = [...host.querySelectorAll('.demo-amount')];
   let i = 0;
@@ -100,17 +87,17 @@ export function initLedgerDemo() {
     cell.classList.toggle('demo-paid', !paid);
     cell.classList.toggle('demo-due', paid);
     const base = cell.textContent.split(' · ')[0];
-    cell.textContent = `${base} · ${paid ? 'FOLLOW-UP' : 'PAID ✓'}`;
+    cell.textContent = `${base} · ${paid ? 'FOLLOW UP' : 'REPLIED ✓'}`;
     i += 1;
   }, 1150);
 }
 
 const ONBOARD_STEPS = [
-  'Payment received · Stripe',
-  'CRM record created',
-  'Slack channel spun up',
-  'Kickoff call booked',
-  'Welcome sequence live',
+  'Role open · confirmed',
+  'Hire owner · confirmed',
+  'Inside your box',
+  'Meeting booked',
+  'Intro sent to you',
 ];
 
 export function initChecklistDemo() {

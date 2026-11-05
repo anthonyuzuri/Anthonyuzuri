@@ -233,9 +233,115 @@ function shapeRobot(out) {
   }
 }
 
-const SHAPES = { scan: shapeScan, gear: shapeGear, helix: shapeHelix, logo: shapeLogo, robot: shapeRobot };
-const TILT = { scan: [0.28, 0], gear: [0.42, 0.3], helix: [0.12, 0], logo: [0.06, 0], robot: [0.04, 0] };
-const SPIN = { scan: 'y', gear: 'z', helix: 'y', logo: 'sway', robot: 'sway' };
+function shapeClipboard(out) {
+  // rasterize a clipboard with a checkmark: "your box, written down and agreed"
+  const S = 300;
+  const off = document.createElement('canvas');
+  off.width = S; off.height = S;
+  const c = off.getContext('2d');
+  c.strokeStyle = '#fff';
+  c.fillStyle = '#fff';
+  c.lineJoin = 'round';
+  c.lineCap = 'round';
+
+  // board
+  c.lineWidth = 11;
+  c.beginPath(); c.roundRect(70, 52, 160, 214, 22); c.stroke();
+  // clip at the top, solid so it burns brighter
+  c.beginPath(); c.roundRect(112, 34, 76, 38, 12); c.fill();
+  // two written lines
+  c.lineWidth = 7;
+  [[104, 112, 196], [104, 140, 170]].forEach(([x1, y, x2]) => {
+    c.beginPath(); c.moveTo(x1, y); c.lineTo(x2, y); c.stroke();
+  });
+  // big checkmark
+  c.lineWidth = 16;
+  c.beginPath(); c.moveTo(108, 196); c.lineTo(140, 228); c.lineTo(198, 166); c.stroke();
+
+  const data = c.getImageData(0, 0, S, S).data;
+  const lit = [];
+  for (let y = 0; y < S; y += 2) {
+    for (let x = 0; x < S; x += 2) {
+      if (data[(y * S + x) * 4 + 3] > 120) lit.push([x / S, y / S]);
+    }
+  }
+  const SCALE = 4.6;
+  for (let i = 0; i < COUNT; i += 1) {
+    const [px, py] = lit[Math.floor(Math.random() * lit.length)];
+    out[i * 3] = (px - 0.5) * SCALE + (Math.random() - 0.5) * 0.03;
+    out[i * 3 + 1] = (0.5 - py) * SCALE + (Math.random() - 0.5) * 0.03;
+    out[i * 3 + 2] = (Math.random() - 0.5) * 0.32;
+  }
+}
+
+function sampleRaster(c, S, out, SCALE, depth = 0.32) {
+  const data = c.getImageData(0, 0, S, S).data;
+  const lit = [];
+  for (let y = 0; y < S; y += 2) {
+    for (let x = 0; x < S; x += 2) {
+      if (data[(y * S + x) * 4 + 3] > 120) lit.push([x / S, y / S]);
+    }
+  }
+  for (let i = 0; i < COUNT; i += 1) {
+    const [px, py] = lit[Math.floor(Math.random() * lit.length)];
+    out[i * 3] = (px - 0.5) * SCALE + (Math.random() - 0.5) * 0.03;
+    out[i * 3 + 1] = (0.5 - py) * SCALE + (Math.random() - 0.5) * 0.03;
+    out[i * 3 + 2] = (Math.random() - 0.5) * depth;
+  }
+}
+
+function rasterCtx(S) {
+  const off = document.createElement('canvas');
+  off.width = S; off.height = S;
+  const c = off.getContext('2d');
+  c.strokeStyle = '#fff';
+  c.fillStyle = '#fff';
+  c.lineJoin = 'round';
+  c.lineCap = 'round';
+  return c;
+}
+
+function shapeRadar(out) {
+  // radar scope: rings, crosshair, a sweep wedge and a few blips (hiring signals)
+  const S = 300;
+  const c = rasterCtx(S);
+  const cx = 150, cy = 150;
+  c.lineWidth = 9;
+  c.beginPath(); c.arc(cx, cy, 122, 0, Math.PI * 2); c.stroke();
+  c.lineWidth = 6;
+  [82, 42].forEach((r) => { c.beginPath(); c.arc(cx, cy, r, 0, Math.PI * 2); c.stroke(); });
+  c.lineWidth = 4;
+  c.beginPath(); c.moveTo(cx - 122, cy); c.lineTo(cx + 122, cy); c.stroke();
+  c.beginPath(); c.moveTo(cx, cy - 122); c.lineTo(cx, cy + 122); c.stroke();
+  // sweep wedge
+  c.beginPath(); c.moveTo(cx, cy); c.arc(cx, cy, 122, -Math.PI / 2, -Math.PI / 2 + 0.55); c.closePath(); c.fill();
+  // blips
+  [[205, 92, 11], [96, 196, 9], [186, 206, 8]].forEach(([x, y, r]) => {
+    c.beginPath(); c.arc(x, y, r, 0, Math.PI * 2); c.fill();
+  });
+  sampleRaster(c, S, out, 4.5, 0.2);
+}
+
+function shapeConnect(out) {
+  // one person introducing another: the introducer's arm reaches toward the other
+  const S = 300;
+  const c = rasterCtx(S);
+  // introducer (left)
+  c.beginPath(); c.arc(92, 96, 27, 0, Math.PI * 2); c.fill();
+  c.beginPath(); c.roundRect(52, 136, 80, 124, [38, 38, 8, 8]); c.fill();
+  // open arm + hand, gesturing toward the other person
+  c.lineWidth = 17;
+  c.beginPath(); c.moveTo(118, 160); c.lineTo(168, 140); c.stroke();
+  c.beginPath(); c.ellipse(178, 136, 13, 9, -0.35, 0, Math.PI * 2); c.fill();
+  // the person being introduced (right)
+  c.beginPath(); c.arc(232, 104, 27, 0, Math.PI * 2); c.fill();
+  c.beginPath(); c.roundRect(194, 144, 78, 116, [38, 38, 8, 8]); c.fill();
+  sampleRaster(c, S, out, 4.6, 0.28);
+}
+
+const SHAPES = { scan: shapeScan, gear: shapeGear, helix: shapeHelix, logo: shapeLogo, robot: shapeRobot, clipboard: shapeClipboard, radar: shapeRadar, connect: shapeConnect };
+const TILT = { scan: [0.28, 0], gear: [0.42, 0.3], helix: [0.12, 0], logo: [0.06, 0], robot: [0.04, 0], clipboard: [0.04, 0], radar: [0.0, 0], connect: [0.04, 0] };
+const SPIN = { scan: 'y', gear: 'z', helix: 'y', logo: 'sway', robot: 'sway', clipboard: 'float', radar: 'z', connect: 'sway' };
 
 export function initSculpt(canvas, kind = 'scan') {
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: false, powerPreference: 'high-performance' });
@@ -322,6 +428,11 @@ export function initSculpt(canvas, kind = 'scan') {
     u.z += (state.pStrength - u.z) * 0.1;
     if (spinAxis === 'z') points.rotation.z = t * 0.2;
     else if (spinAxis === 'sway') points.rotation.y = Math.sin(t * 0.42) * 0.24;
+    else if (spinAxis === 'float') {
+      points.rotation.y = Math.sin(t * 0.55) * 0.6;
+      points.rotation.z = Math.sin(t * 0.35) * 0.08;
+      points.position.y = Math.sin(t * 0.8) * 0.12;
+    }
     else points.rotation.y = t * 0.16;
     renderer.render(scene, camera);
   }

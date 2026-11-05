@@ -40,10 +40,11 @@ if (!reducedMotion) {
 }
 
 /* ── marquee bands ─────────────────────────────────────────── */
-const DISCIPLINES = ['pipeline', 'billing', 'onboarding', 'outbound', 'reporting', 'retention'];
+const DISCIPLINES = ['engineering', 'manufacturing', 'energy', 'construction', 'automation', 'controls'];
 const PLATFORMS = [
-  'HubSpot', 'Salesforce', 'GoHighLevel', 'Zoho CRM', 'Stripe', 'Slack',
-  'ClickUp', 'Make', 'Twilio', 'Instantly', 'Calendly', 'Claude',
+  'Mechanical Engineer', 'Electrical Engineer', 'Controls Engineer', 'Process Engineer',
+  'Project Engineer', 'Manufacturing Engineer', 'Field Engineer', 'Quality Engineer',
+  'Commissioning Engineer', 'Plant Manager', 'Civil Engineer', 'Design Engineer',
 ];
 function loopTrack(track, duration, dir = -1) {
   const half = track.scrollWidth / 2;
@@ -418,13 +419,13 @@ function initRail() {
 
 /* ── live system log ───────────────────────────────────────── */
 const SYSLOG_LINES = [
-  '09:41:07 <b>agent.routed</b> · inbound lead → owner assigned in 1.2s',
-  '09:41:12 <b>proposal.sent</b> · $18,400 · assembled from 3 CRM objects',
-  '09:41:19 <b>model.drafted</b> · day-14 invoice nudge, tone: polite',
-  '09:41:26 <b>onboarding.spawned</b> · workspace + kickoff + welcome seq',
-  '09:41:33 <b>pipeline.sweep</b> · 2 stale deals resurfaced to owner',
-  '09:41:40 <b>ledger.reconciled</b> · 47 transactions, 0 exceptions',
-  '09:41:48 <b>followup.fired</b> · no-show rescheduled automatically',
+  '09:41:07 <b>role.found</b> · Controls Engineer · Houston · posted today',
+  '09:41:12 <b>role.matched</b> · inside your box · roles, city, size',
+  '09:41:19 <b>owner.found</b> · Engineering Manager · email verified',
+  '09:41:26 <b>email.sent</b> · step 1 · about the open role',
+  '09:41:33 <b>followup.sent</b> · step 2 · day 3',
+  '09:41:40 <b>reply.tagged</b> · interested · alert sent',
+  '09:41:48 <b>intro.booked</b> · Tue 10:00 CT · on your calendar',
 ];
 function initSyslog() {
   const line = document.getElementById('syslog-line');
@@ -501,3 +502,15 @@ runPreloader({ reducedMotion, onReveal: heroIntro }).then(() => {
 // No window.load refresh: on mobile the hero video finishes downloading seconds
 // later, and a refresh then reflows the pinned hero mid-scroll (reads as a
 // "reload"). Layout is stable after the preloader, so one refresh above suffices.
+
+/* ── fit cards pop in on scroll ────────────────────────────── */
+function initFit() {
+  if (reducedMotion) return;
+  const cols = document.querySelectorAll('.fit-col');
+  if (!cols.length) return;
+  gsap.from(cols, {
+    y: 70, scale: 0.92, opacity: 0, duration: 1.1, ease: 'back.out(1.6)', stagger: 0.18, clearProps: 'transform,opacity',
+    scrollTrigger: { trigger: '.fit-grid', start: 'top 80%', once: true },
+  });
+}
+initFit();
